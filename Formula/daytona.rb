@@ -15,7 +15,9 @@ class Daytona < Formula
 
   def install
     # Use the pre-built binary from the resource
+    puts "Installing binary..."
     bin.install resource("prebuilt-binary").files("daytona")
+    puts "Installed at: #{bin}/daytona"
     chmod "+x", "#{bin}/daytona" # Set execute permissions (if needed)
   end
 
