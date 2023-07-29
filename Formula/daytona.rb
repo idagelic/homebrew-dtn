@@ -7,22 +7,16 @@ class Daytona < Formula
 
   depends_on "go" => :build
 
+  # Define the resource named "daytona"
+  resource "daytona" do
+    url "https://github.com/idagelic/homebrew-dtn/archive/v0.1.0-alpha.tar.gz"
+    sha256 "44d1e4edbd9bbb969e3f9d7b60ab64216d932fa3620dc507e87ddf270bf3c1e7"
+  end
+
   def install
-    # Install the pre-built binary directly into the Homebrew 'bin' directory
-    # bin.install "homebrew-dtn-0.1.0-alpha" => "daytona"
-    # system "go", "build", "-o", bin/"your-cli"
-    # Additionally, you can install any necessary files, such as documentation or completion.
-    # For example:
-    # doc.install "docs/readme.txt"
-    # bash_completion.install "completion/bash-completion.sh"
-
-    # Download and extract the pre-built binary
-    bin_name = "daytona"
-    bin_path = "#{bin}/#{bin_name}"
-    resource("daytona").stage { bin.install bin_name }
-
-    # Set execute permissions
-    chmod("+x", bin_path)
+    # Use the pre-built binary from the resource
+    bin.install resource("daytona").files("daytona") # Replace 'daytona' with the actual binary name if different
+    chmod "+x", "#{bin}/daytona" # Set execute permissions (if needed)
   end
 
   test do
