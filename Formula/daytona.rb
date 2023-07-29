@@ -9,7 +9,7 @@ class Daytona < Formula
 
   # Define the resource named "daytona"
   resource "prebuilt-binary" do
-    url "https://github.com/idagelic/homebrew-dtn/archive/v0.1.0-alpha.tar.gz"
+    url "https://github.com/idagelic/homebrew-dtn/releases/download/v0.1.0-alpha/daytona_linux_amd64"
     sha256 "44d1e4edbd9bbb969e3f9d7b60ab64216d932fa3620dc507e87ddf270bf3c1e7"
   end
 
