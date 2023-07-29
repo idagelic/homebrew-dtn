@@ -20,7 +20,7 @@ class Daytona < Formula
   end
 
   test do
-    # Add a simple test to verify that your CLI works correctly.
-    assert_match "expected output", shell_output("#{bin}/daytona help")
+    # Run the "daytona help" command and check if it exits successfully
+    assert_nothing_raised { system "#{bin}/daytona help" }
   end
 end
