@@ -9,12 +9,20 @@ class Daytona < Formula
 
   def install
     # Install the pre-built binary directly into the Homebrew 'bin' directory
-    bin.install "homebrew-dtn-0.1.0-alpha" => "daytona"
+    # bin.install "homebrew-dtn-0.1.0-alpha" => "daytona"
     # system "go", "build", "-o", bin/"your-cli"
     # Additionally, you can install any necessary files, such as documentation or completion.
     # For example:
     # doc.install "docs/readme.txt"
     # bash_completion.install "completion/bash-completion.sh"
+
+    # Download and extract the pre-built binary
+    bin_name = "daytona"
+    bin_path = "#{bin}/#{bin_name}"
+    resource("daytona").stage { bin.install bin_name }
+
+    # Set execute permissions
+    chmod("+x", bin_path)
   end
 
   test do
