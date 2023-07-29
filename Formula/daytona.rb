@@ -21,6 +21,6 @@ class Daytona < Formula
 
   test do
     # Run the "daytona help" command and check if it exits successfully
-    assert_nothing_raised { system "#{bin}/daytona help" }
+    assert_nothing_raised { system "#{bin}/daytona", "help" }
   end
 end
