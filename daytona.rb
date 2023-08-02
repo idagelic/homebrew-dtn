@@ -5,11 +5,11 @@
 class Daytona < Formula
   desc ""
   homepage "https://daytona.io/"
-  version "0.7"
+  version "1.5"
 
   on_macos do
-    url "https://github.com/idagelic/TempDTN2/releases/download/v0.7/TempDTN2_0.7_darwin_all.tar.gz"
-    sha256 "f1e53c132a5bee1b0cb3bd3fbfa9f45c7a5c1e608100438f67ec5dc21fc6d1e2"
+    url "https://github.com/idagelic/TempDTN2/releases/download/v1.5/TempDTN2_1.5_darwin_all.tar.gz"
+    sha256 "16cde4c076cde53ab00be973c8998746b1029f2ac15f82ecd64d6ef6eccd1593"
 
     def install
       bin.install "TempDTN2"
@@ -17,17 +17,17 @@ class Daytona < Formula
   end
 
   on_linux do
-    if Hardware::CPU.intel?
-      url "https://github.com/idagelic/TempDTN2/releases/download/v0.7/TempDTN2_0.7_linux_amd64.tar.gz"
-      sha256 "c9b2162499168381735145e49cb6406a28919d7e6bc24111d9befec5b3fc77f4"
+    if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
+      url "https://github.com/idagelic/TempDTN2/releases/download/v1.5/TempDTN2_1.5_linux_arm64.tar.gz"
+      sha256 "d44e03d2915c337ebe16fcd0b841ec6527bbbb15071c32e3a4b76e90b804e03b"
 
       def install
         bin.install "daytona"
       end
     end
-    if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/idagelic/TempDTN2/releases/download/v0.7/TempDTN2_0.7_linux_arm64.tar.gz"
-      sha256 "a7c57b3c6ad60f114bb04a96cc33aa4d4007c84ef07cbc67b6fedf2d93a2f40b"
+    if Hardware::CPU.intel?
+      url "https://github.com/idagelic/TempDTN2/releases/download/v1.5/TempDTN2_1.5_linux_amd64.tar.gz"
+      sha256 "90a5f121a0df10e21ef9729faca5e9c191eafe450282fdc53ea08443298092e1"
 
       def install
         bin.install "daytona"
